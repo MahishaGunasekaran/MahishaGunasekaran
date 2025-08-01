@@ -15,6 +15,38 @@ body {
     min-height: 100vh;
 }
 
+.name-title,
+.job-title,
+.pitch,
+.skills-title {
+    font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+
+}
+
+.name-title {
+    font-size: 70px;
+    border-left: solid 5px teal;
+}
+
+.job-title {
+    font-weight: 500;
+    font-size: xx-large;
+}
+
+.skills-title {
+    font-weight: 900;
+    font-size: xx-large;
+    border-left: solid 5px teal;
+}
+
+.pitch {
+    font-weight: 300;
+    font-size: medium;
+}
+
 .profile-card {
     display: flex;
     flex-direction: column;
@@ -37,11 +69,11 @@ body {
 .name,
 .avatar,
 .description,
-/* .about, */
-.skills,
-.projects,
-.education,
-.experience {
+/* .about-header, */
+.skills-header,
+.projects-header,
+.education-header,
+.experience-header {
     padding-top: 30px;
     text-align: center;
 }
@@ -52,7 +84,7 @@ body {
 
 .content {
     width: 70%;
-    background-color: red;
+    /* background-color: red; */
     height: 100%;
     overflow-y: scroll;
 }
@@ -67,7 +99,7 @@ body {
     padding: 20px;
 }
 
-.about {
+.about-header {
     text-align: center;
 }
 
@@ -86,4 +118,25 @@ a:visited {
 .tabs {
     display: flex;
     flex-direction: column;
+}
+
+.about,
+.skills {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    /* justify-items: center; */
+    /* align-items: center; */
+}
+
+.pitch {
+    /* text-align: center; */
+}
+
+#html,
+#css,
+#js {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
 }
