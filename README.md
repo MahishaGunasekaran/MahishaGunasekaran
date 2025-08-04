@@ -27,3 +27,7 @@
         <a href="https://www.flaticon.com/free-icons/machine-learning" title="machine learning icons">Machine learning icons created by Freepik - Flaticon</a>
 
         <a href="https://www.flaticon.com/free-icons/hugging-face" title="hugging face icons">Hugging face icons created by SBTS2018 - Flaticon</a>
+
+        <a href="https://www.flaticon.com/free-icons/bootstrap" title="bootstrap icons">Bootstrap icons created by Freepik - Flaticon</a>
+
+        <a href="https://www.flaticon.com/free-icons/django" title="django icons">Django icons created by Freepik - Flaticon</a>
