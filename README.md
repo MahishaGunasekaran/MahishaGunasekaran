@@ -21,3 +21,9 @@
         <a href="https://www.flaticon.com/free-icons/heroku" title="heroku icons">Heroku icons created by Freepik - Flaticon</a>
 
         <a href="https://www.flaticon.com/free-icons/jquery" title="jquery icons">Jquery icons created by agustrisana - Flaticon</a>
+
+        <a href="https://www.flaticon.com/free-icons/artificial-intelligence" title="artificial intelligence icons">Artificial intelligence icons created by Smashicons - Flaticon</a>
+
+        <a href="https://www.flaticon.com/free-icons/machine-learning" title="machine learning icons">Machine learning icons created by Freepik - Flaticon</a>
+
+        <a href="https://www.flaticon.com/free-icons/hugging-face" title="hugging face icons">Hugging face icons created by SBTS2018 - Flaticon</a>
