@@ -1,0 +1,102 @@
+/* .container {
+    position: relative;
+    text-align: center;
+    color: white;
+} */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    /* background-color: brown; */
+}
+
+.techskills {
+    font-family: "Source Code Pro", serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+  }
+
+/* Add media queries */
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: xx-large;
+    font-family: "Noto Sans JP", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.top-left{
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+#home,
+#contact {
+    /* background-color: teal; */
+    background-image: url("../images/downloads/portfolio-bg-1.jpg");
+    padding-top: 50px;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 10%;
+    /* parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    /* Box shadow */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+img,
+button {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.navfont {
+    font-family: 'Unica One', cursive;
+    font-size: 3ch;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.projectbutton {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.projectheader {
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-size: x-large;
+    font-weight: 700;
+    font-style: normal;
+    text-shadow: 1px 1px 1px #000000;
+}
+
+.navbar {
+    display: none;
+}
+
+/* Add shadows */
+
+/* Try taking header out by making a link to new page */
+
+/* Add media queries */
