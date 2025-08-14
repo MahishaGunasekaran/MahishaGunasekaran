@@ -57,6 +57,7 @@ body {
 .pitch {
     font-weight: 300;
     font-size: medium;
+    padding-top: 20px;
 }
 
 .profile-card {
