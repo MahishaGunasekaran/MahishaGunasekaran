@@ -63,7 +63,7 @@ body {
     color: var(--white);
     align-items: center;
     overflow: auto;
-    position:fixed;
+    position: fixed;
     left: 0;
     top: 0;
     /* scrollbar-width: thin; */
@@ -340,7 +340,8 @@ a:visited {
     content: '';
     position: absolute;
     left: -9px;
-    top: 0; /* adjust to vertically center with header */
+    top: 0;
+    /* adjust to vertically center with header */
     width: 16px;
     height: 16px;
     background-color: teal;
@@ -351,14 +352,23 @@ a:visited {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 15px; /* spacing between logo and text */
+    gap: 15px;
+    /* spacing between logo and text */
 }
 
-.company-logo img {
-    width: 50px; /* adjust as needed */
+.company-logo img,
+.univ-logo img {
+    width: 50px;
+    /* adjust as needed */
     height: 50px;
     object-fit: cover;
     border-radius: 5px;
+}
+
+.educationsec-header {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
 }
 
 .exp-left {
@@ -381,7 +391,8 @@ a:visited {
     text-align: right;
     font-size: 14px;
     color: #666;
-    min-width: 120px; /* ensures right column stays aligned */
+    min-width: 120px;
+    /* ensures right column stays aligned */
 }
 
 .exp-description {
@@ -443,10 +454,11 @@ a:visited {
     transform: scale(1.03);
 }
 
-.company-logo img {
-  /* width: 50px; */
-  height: 50px;
-  object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+.company-logo img,
+.univ-logo img {
+    /* width: 50px; */
+    height: 50px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
