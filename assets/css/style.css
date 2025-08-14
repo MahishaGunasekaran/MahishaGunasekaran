@@ -36,6 +36,7 @@ body {
 .job-title {
     font-weight: 500;
     font-size: xx-large;
+    padding-top: 10px;
 }
 
 .skills-title {
@@ -378,7 +379,7 @@ a:visited {
 .job-title {
     font-weight: 700;
     font-size: 18px;
-    color: #222;
+    color: #004d40;
 }
 
 .company {
