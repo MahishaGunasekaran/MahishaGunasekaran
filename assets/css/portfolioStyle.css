@@ -46,11 +46,12 @@ body {
 #home,
 #contact {
     /* background-color: teal; */
-    background-image: url("../images/downloads/portfolio-bg-1.jpg");
+    background-image: url("../images/portfolio/portfolio-bg-1.jpg");
     padding-top: 50px;
     width: 100%;
     height: 100%;
     padding-bottom: 10%;
+    object-fit: contain;
     /* parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
