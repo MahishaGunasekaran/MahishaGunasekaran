@@ -11,6 +11,14 @@ body {
     /* overflow: hidden; */
 }
 
+.tabs > .active span{
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 10px;
+}
+
 .container {
     display: flex;
     min-height: 100vh;
