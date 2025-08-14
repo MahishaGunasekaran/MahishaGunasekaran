@@ -86,7 +86,8 @@ body {
 .skills-header,
 .projects-header,
 .education-header,
-.experience-header {
+.experience-header,
+.presentation-header {
     padding-top: 30px;
     text-align: center;
 }
