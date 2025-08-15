@@ -54,3 +54,16 @@ Array.from(navbar[0].children).forEach((item) => {
         console.log("I am clicked");
     });
 });
+
+const darkModeBtn = document.getElementById('darkModeBtn');
+
+darkModeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+});
+
+// Apply on page load
+if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-mode');
+}
+

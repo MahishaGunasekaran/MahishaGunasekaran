@@ -1,6 +1,113 @@
 :root {
     --white: white;
+    --active-bg-color: white;
+    --active-text-color: black;
+    --theme-color: teal;
+    --theme-d-color: #004d40;
+    --shadow-dark: rgba(0, 0, 0, 0.1);
 }
+
+body.dark-mode {
+    --white: #e0e0e0;
+    /* light gray text instead of pure white */
+    --active-bg-color: #004d40;
+    /* deep teal for active tabs */
+    --active-text-color: #ffffff;
+    --theme-color: teal;
+    /* keep branding color */
+    --theme-d-color: #b2dfdb;
+    /* soft light teal for headings */
+    --shadow-dark: rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .profile-card {
+    background-color: #1e1e1e;
+    color: var(--white);
+}
+
+body.dark-mode .skills-subtitle {
+    background-color: #004d40;
+    color: var(--white);
+}
+
+body.dark-mode .project-card {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .section-title {
+    color: var(--theme-d-color);
+}
+
+body.dark-mode .degree,
+body.dark-mode .project-title,
+body.dark-mode .job-title {
+    color: var(--white);
+}
+
+body.dark-mode .school,
+body.dark-mode .project-tech,
+body.dark-mode .company,
+body.dark-mode .exp-description {
+    color: #cccccc;
+}
+
+body.dark-mode .dark-toggle {
+    background-color: var(--theme-d-color);
+}
+
+body.dark-mode .gallery img {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+}
+
+.dark-toggle {
+    /* position: fixed; */
+    /* bottom: 20px; */
+    /* right: 20px; */
+    background: black;
+    color: var(--white);
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 6px var(--shadow-dark);
+    /* z-index: 1000; */
+    transition: background 0.3s ease;
+}
+
+.dark-toggle:hover {
+    background: var(--theme-d-color);
+}
+
+
+.theme-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.theme-controls button,
+.theme-controls label {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.theme-controls button:hover,
+.theme-controls label:hover {
+  opacity: 0.7;
+}
+
+input[type="color"] {
+  position: absolute;
+  left: -9999px;
+}
+
+
+
 
 html,
 body {
@@ -11,12 +118,12 @@ body {
     /* overflow: hidden; */
 }
 
-.tabs > .active span{
-  background-color: white;
-  color: black;
-  font-weight: bold;
-  border-radius: 6px;
-  padding: 10px;
+.tabs>.active span {
+    background-color: var(--active-bg-color);
+    color: var(--active-text-color);
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 10px;
 }
 
 .container {
@@ -37,7 +144,7 @@ body {
 
 .name-title {
     font-size: 70px;
-    border-left: solid 5px teal;
+    border-left: solid 5px var(--theme-color);
     padding-left: 15px;
 }
 
@@ -50,7 +157,7 @@ body {
 .skills-title {
     font-weight: 900;
     font-size: xx-large;
-    border-left: solid 5px teal;
+    border-left: solid 5px var(--theme-color);
     padding-left: 15px;
 }
 
@@ -65,7 +172,7 @@ body {
     flex-direction: column;
     width: 30%;
     height: 100vh;
-    background-color: teal;
+    background-color: var(--theme-color);
     font-family: "Manrope", sans-serif;
     font-optical-sizing: auto;
     font-weight: 900;
@@ -185,13 +292,13 @@ a:visited {
     margin-top: 30px;
     padding: 10px 15px;
     background-color: #e0f2f1;
-    color: #004d40;
+    color: var(--theme-d-color);
     /* deep teal text */
     font-size: 18px;
     font-weight: 700;
-    border-left: 5px solid teal;
+    border-left: 5px solid var(--theme-color);
     border-radius: 4px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 4px var(--shadow-dark);
     font-family: "Manrope", sans-serif;
 }
 
@@ -206,15 +313,15 @@ a:visited {
 .section-title {
     font-size: 26px;
     font-weight: 700;
-    border-left: 5px solid teal;
+    border-left: 5px solid var(--theme-color);
     padding-left: 10px;
-    color: #004d40;
+    color: var(--theme-d-color);
 }
 
 .education-item {
     display: flex;
     justify-content: space-between;
-    border-left: 3px solid teal;
+    border-left: 3px solid var(--theme-color);
     padding-left: 20px;
     position: relative;
 }
@@ -226,7 +333,7 @@ a:visited {
     top: 0;
     width: 16px;
     height: 16px;
-    background-color: teal;
+    background-color: var(--theme-color);
     border-radius: 50%;
 }
 
@@ -262,9 +369,9 @@ a:visited {
 .section-title {
     font-size: 26px;
     font-weight: 700;
-    border-left: 5px solid teal;
+    border-left: 5px solid var(--theme-color);
     padding-left: 10px;
-    color: #004d40;
+    color: var(--theme-d-color);
     margin-bottom: 30px;
 }
 
@@ -277,7 +384,7 @@ a:visited {
 .project-card {
     background-color: #f9f9f9;
     border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px var(--shadow-dark);
     width: calc(50% - 10px);
     display: flex;
     flex-direction: column;
@@ -313,7 +420,7 @@ a:visited {
 
 .project-links a {
     margin-right: 10px;
-    color: teal;
+    color: var(--theme-color);
     font-size: 18px;
     text-decoration: none;
 }
@@ -334,14 +441,14 @@ a:visited {
 .section-title {
     font-size: 26px;
     font-weight: 700;
-    border-left: 5px solid teal;
+    border-left: 5px solid var(--theme-color);
     padding-left: 10px;
-    color: #004d40;
+    color: var(--theme-d-color);
     margin-bottom: 30px;
 }
 
 .experience-item {
-    border-left: 3px solid teal;
+    border-left: 3px solid var(--theme-color);
     padding-left: 20px;
     position: relative;
     margin-bottom: 30px;
@@ -355,7 +462,7 @@ a:visited {
     /* adjust to vertically center with header */
     width: 16px;
     height: 16px;
-    background-color: teal;
+    background-color: var(--theme-color);
     border-radius: 50%;
 }
 
@@ -389,7 +496,7 @@ a:visited {
 .job-title {
     font-weight: 700;
     font-size: 18px;
-    color: #004d40;
+    color: var(--theme-d-color);
 }
 
 .company {
@@ -434,9 +541,9 @@ a:visited {
 .section-title {
     font-size: 26px;
     font-weight: 700;
-    border-left: 5px solid teal;
+    border-left: 5px solid var(--theme-color);
     padding-left: 10px;
-    color: #004d40;
+    color: var(--theme-d-color);
     margin-bottom: 20px;
 }
 
@@ -457,7 +564,7 @@ a:visited {
     width: 100%;
     height: auto;
     border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px var(--shadow-dark);
     transition: transform 0.3s ease;
 }
 
@@ -471,5 +578,5 @@ a:visited {
     height: 50px;
     object-fit: contain;
     border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px var(--shadow-dark);
 }
