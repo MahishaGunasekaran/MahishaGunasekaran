@@ -103,3 +103,9 @@ swatches.forEach(swatch => {
     })
 })
 
+const hamburger = document.querySelector(".hamburger");
+const profileCard = document.querySelector(".profile-card");
+
+hamburger.addEventListener("click", () => {
+    profileCard.classList.toggle("show");
+})

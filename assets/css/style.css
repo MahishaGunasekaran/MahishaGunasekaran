@@ -105,29 +105,31 @@ body.dark-mode .gallery img {
 .color-palette {
     padding-top: 20px;
     display: flex;
+    flex-wrap: wrap;
     gap: 0.3rem;
 }
 
 .color-swatch {
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  margin: 5px;
-  cursor: pointer;
-  transform: scale(1);
-  transition: transform 0.2s ease, border 0.2s ease;
-  outline: none;
-  border: 2px solid transparent;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 5px;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 0.2s ease, border 0.2s ease;
+    outline: none;
+    border: 2px solid transparent;
 }
 
 .color-swatch:hover {
-  transform: scale(1.2);
+    transform: scale(1.2);
 }
 
-.color-swatch.activeicon{
-  transform: scale(1.2);
-  border: 2px solid #fff; /* or subtle highlight */
+.color-swatch.activeicon {
+    transform: scale(1.2);
+    border: 2px solid #fff;
+    /* or subtle highlight */
 }
 
 
@@ -139,6 +141,7 @@ body.dark-mode .gallery img {
 
 html,
 body {
+    display: flex;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -314,6 +317,7 @@ a:visited {
 
 .skills-list {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
@@ -610,12 +614,57 @@ a:visited {
     box-shadow: 0 2px 6px var(--shadow-dark);
 }
 
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
 
+    .profile-card {
+        /* width: 100%; */
+        /* height: 100%; */
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* height: 100vh; */
+        /* width: 220px; */
+        z-index: 1000;
+        padding: 1rem;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    }
 
+    .content {
+        /* margin-left: 30%; */
+        width: 100%;
+        /* background-color: red; */
+        height: 100%;
+        overflow-y: scroll;
+        margin-left: 0%;
+    }
 
+    .profile-card.show {
+        display: block;
+    }
 
+    .hamburger {
+        display: block;
+        /* position: fixed; */
+        top: 1;
+        left: 20px;
+        z-index: 1100;
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-size: 2.0rem;
+        color: var(--theme-color);
+        padding-bottom: 10px;
+        width: 100px;
+    }
+}
 
-
-
-
-
+@media (min-width: 769px) {
+    .hamburger {
+        display: none;
+    }
+}
