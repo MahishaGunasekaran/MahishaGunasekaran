@@ -76,11 +76,16 @@ if (localStorage.getItem('darkMode') === 'true') {
     document.body.classList.add('dark-mode');
 }
 
-document.querySelectorAll('.color-swatch').forEach(swatch => {
-  swatch.addEventListener('click', () => {
-    const color = swatch.dataset.color;
-    const dcolor = swatch.dataset.dcolor;
-    document.documentElement.style.setProperty('--theme-color', color);
-    document.documentElement.style.setProperty('--theme-d-color', dcolor); // optional: darker variant if needed
-  });
-});
+const swatches = document.querySelectorAll(".color-swatch");
+
+swatches.forEach(swatch => {
+    swatch.addEventListener("click", () => {
+        swatches.forEach(s => s.classList.remove("activeicon"));
+        swatch.classList.add("activeicon");
+
+        const color = swatch.dataset.color;
+        const dcolor = swatch.dataset.dcolor;
+        document.documentElement.style.setProperty('--theme-color', color);
+        document.documentElement.style.setProperty('--theme-d-color', dcolor);
+    })
+})
