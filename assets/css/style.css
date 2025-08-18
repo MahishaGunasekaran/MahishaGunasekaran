@@ -111,9 +111,9 @@ body.dark-mode .gallery img {
 
 .color-swatch {
     display: inline-block;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    border-radius: 6px;
     margin: 5px;
     cursor: pointer;
     transform: scale(1);
