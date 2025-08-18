@@ -57,7 +57,7 @@ body.dark-mode .dark-toggle {
 }
 
 body.dark-mode .gallery img {
-    box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
 }
 
 .dark-toggle {
@@ -81,31 +81,41 @@ body.dark-mode .gallery img {
 
 
 .theme-controls {
-  display: flex;
-  gap: 0.8rem;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 0;
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
 }
 
-.theme-controls button,
-.theme-controls label {
-  background: none;
-  border: none;
-  color: var(--white);
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
+.theme-controls button {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
 }
 
-.theme-controls button:hover,
-.theme-controls label:hover {
-  opacity: 0.7;
+.theme-controls button:hover {
+    opacity: 0.7;
 }
 
-input[type="color"] {
-  position: absolute;
-  left: -9999px;
+.color-palette {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.color-swatch {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border: 2px solid var(--white);
+    transition: transform 0.2s ease, border 0.2s ease;
+}
+
+.color-swatch:hover {
+    transform: scale(1.2);
 }
 
 
