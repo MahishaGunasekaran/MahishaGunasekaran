@@ -55,11 +55,20 @@ Array.from(navbar[0].children).forEach((item) => {
     });
 });
 
-const darkModeBtn = document.getElementById('darkModeBtn');
+const darkModeBtn = document.getElementById('darkModeToggle');
+const icons = darkModeBtn.querySelector("i");
+console.log(icons);
 
 darkModeBtn.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
     localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    if (document.body.classList.contains("dark-mode")) {
+        icons.classList.remove("fa-moon");
+        icons.classList.add("fa-sun");
+    } else {
+        icons.classList.remove("fa-sun");
+        icons.classList.add("fa-moon");
+    }
 });
 
 // Apply on page load
