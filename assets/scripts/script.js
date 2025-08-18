@@ -65,9 +65,15 @@ darkModeBtn.addEventListener('click', () => {
     if (document.body.classList.contains("dark-mode")) {
         icons.classList.remove("fa-moon");
         icons.classList.add("fa-sun");
+        document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
+        document.documentElement.style.setProperty('--active-bg-color', localStorage.getItem("themeDColor"));
+        console.log(localStorage.getItem("themeDColor"));
     } else {
         icons.classList.remove("fa-sun");
         icons.classList.add("fa-moon");
+        document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
+        document.documentElement.style.setProperty('--theme-d-color', localStorage.getItem("themeDColor"));
+        document.documentElement.style.setProperty('--active-bg-color', "white");
     }
 });
 
@@ -87,5 +93,12 @@ swatches.forEach(swatch => {
         const dcolor = swatch.dataset.dcolor;
         document.documentElement.style.setProperty('--theme-color', color);
         document.documentElement.style.setProperty('--theme-d-color', dcolor);
+        localStorage.setItem("themeColor", color);
+        localStorage.setItem("themeDColor", dcolor);
+        if (document.body.classList.contains("dark-mode")) {
+            document.documentElement.style.setProperty('--theme-color', color);
+            document.documentElement.style.setProperty('--active-bg-color', dcolor);
+            // console.log(localStorage.getItem("themeDColor"));
+        }
     })
 })

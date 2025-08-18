@@ -10,10 +10,10 @@
 body.dark-mode {
     --white: #e0e0e0;
     /* light gray text instead of pure white */
-    --active-bg-color: #004d40;
+    /* --active-bg-color: #004d40; */
     /* deep teal for active tabs */
     --active-text-color: #ffffff;
-    --theme-color: teal;
+    /* --theme-color: teal; */
     /* keep branding color */
     --theme-d-color: #b2dfdb;
     /* soft light teal for headings */
@@ -27,7 +27,7 @@ body.dark-mode .profile-card {
 }
 
 body.dark-mode .skills-subtitle {
-    background-color: #004d40;
+    background-color: #A9A9A9;
     color: var(--white);
 }
 
