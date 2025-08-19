@@ -80,6 +80,8 @@ darkModeBtn.addEventListener('click', () => {
 // Apply on page load
 if (localStorage.getItem('darkMode') === 'true') {
     document.body.classList.add('dark-mode');
+    document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
+    document.documentElement.style.setProperty('--active-bg-color', localStorage.getItem("themeDColor"));
 }
 
 const swatches = document.querySelectorAll(".color-swatch");
