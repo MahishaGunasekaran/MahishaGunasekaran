@@ -83,6 +83,17 @@ body.dark-mode .btn-view-all:hover {
     transform: translateY(-2px);
 }
 
+body.dark-mode .skill-name {
+    margin-top: 5px;
+    font-size: 14px;
+    color: var(--theme-color);
+    text-align: center;
+    font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+}
+
 .dark-toggle {
     /* position: fixed; */
     /* bottom: 20px; */
@@ -341,6 +352,24 @@ a:visited {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    align-items: center;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skill-name {
+    margin-top: 5px;
+    font-size: 14px;
+    color: var(--theme-d-color);
+    text-align: center;
+    font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
 }
 
 .skills-subtitle {
