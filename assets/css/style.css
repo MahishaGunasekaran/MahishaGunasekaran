@@ -268,9 +268,11 @@ body {
 .projects-header,
 .education-header,
 .experience-header,
-.presentation-header {
+.presentation-header,
+.settings-icon {
     padding-top: 30px;
     text-align: center;
+
 }
 
 .description {
@@ -687,6 +689,26 @@ a:visited {
     background-color: var(--theme-d-color);
     transform: translateY(-2px);
 }
+
+.settings-icon {
+    font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    color: var(--white);
+    align-items: center;
+    cursor: pointer;
+}
+
+.toggle-btn {
+   font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    color: var(--white);
+    align-items: center;
+}
+
 
 
 @media (max-width: 768px) {

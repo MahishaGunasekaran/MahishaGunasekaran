@@ -110,4 +110,5 @@ const profileCard = document.querySelector(".profile-card");
 
 hamburger.addEventListener("click", () => {
     profileCard.classList.toggle("show");
-})
+});
+
