@@ -8,6 +8,7 @@ const observer = new IntersectionObserver((entries) => {
         const id = entry.target.getAttribute("id");
 
         if (entry.isIntersecting) {
+            console.log(id);
             // Animate on scroll for elements that have this class
             if (entry.target.classList.contains('animate-on-scroll')) {
                 entry.target.classList.add("visible");
@@ -29,7 +30,7 @@ const observer = new IntersectionObserver((entries) => {
             }
         }
     });
-}, { threshold: 0.7 }); // adjust threshold for when section counts as "in view"
+}, { threshold: 0.5 }); // adjust threshold for when section counts as "in view"
 
 // Observe all sections for nav highlighting
 sections.forEach(section => observer.observe(section));
