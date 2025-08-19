@@ -57,21 +57,21 @@ Array.from(navbar[0].children).forEach((item) => {
 });
 
 const darkModeBtn = document.getElementById('darkModeToggle');
-const icons = darkModeBtn.querySelector("i");
-console.log(icons);
+// const icons = darkModeBtn.querySelector("i");
+// console.log(icons);
 
 darkModeBtn.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
     localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
     if (document.body.classList.contains("dark-mode")) {
-        icons.classList.remove("fa-moon");
-        icons.classList.add("fa-sun");
+        // icons.classList.remove("fa-moon");
+        // icons.classList.add("fa-sun");
         document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
         document.documentElement.style.setProperty('--active-bg-color', localStorage.getItem("themeDColor"));
-        console.log(localStorage.getItem("themeDColor"));
+        // console.log(localStorage.getItem("themeDColor"));
     } else {
-        icons.classList.remove("fa-sun");
-        icons.classList.add("fa-moon");
+        // icons.classList.remove("fa-sun");
+        // icons.classList.add("fa-moon");
         document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
         document.documentElement.style.setProperty('--theme-d-color', localStorage.getItem("themeDColor"));
         document.documentElement.style.setProperty('--active-bg-color', "white");
