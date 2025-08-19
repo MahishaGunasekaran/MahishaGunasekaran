@@ -18,6 +18,8 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+
     <title>Mahisha Gunasekaran</title>
 </head>
 
@@ -67,6 +69,7 @@
                 </a>
             </div>
 
+
             <!-- <div class="settings-dropdown-container"> -->
             <!-- <a id="settingsToggle" class="settings-icon" title="Settings">
                 <span><i class="fas fa-cog"></i> &nbsp; Settings</span>
@@ -97,74 +100,44 @@
 
             <!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
             <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> -->
-            <el-dropdown class="inline-block">
-                <button class="inline-flex w-full justify-center gap-x-1.5 settings-icon">
-                    <span><i class="fas fa-cog"></i> &nbsp; Change Theme</span>
-                    <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true"
-                        class="-mr-1 size-7">
-                        <path
-                            d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                            clip-rule="evenodd" fill-rule="evenodd" />
-                    </svg>
-                </button>
 
-                <el-menu anchor="bottom end" popover class="w-56 origin-top-right rounded-md bg-white shadow-lg outline-1 
-                    outline-black/5 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 
-                    data-closed:transform data-closed:opacity-0 data-enter:duration-100
-                    data-enter:ease-out data-leave:duration-75 data-leave:ease-in dark:bg-gray-800
-                    dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
-                    <div class="py-1">
+
+            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
+                class="text-center inline-flex items-center settings-icon" type="button"><span><i
+                        class="fas fa-cog"></i> &nbsp; Change Theme</span><svg class="w-2.5 h-2.5 ms-3"
+                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                        d="m1 1 4 4 4-4" />
+                </svg>
+            </button>
+            <!-- Dropdown menu -->
+            <div id="dropdown"
+                class="p-3 z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-55 dark:bg-gray-700">
+                <div class="color-palette" title="Change Theme Color">
+                    <span class="color-swatch activeicon" data-color="teal" data-dcolor="#004d40"
+                        style="background-color: teal;"></span>
+                    <span class="color-swatch" data-color="#e57373" data-dcolor="#b71c1c"
+                        style="background-color: #e57373;"></span>
+                    <span class="color-swatch" data-color="#c62828" data-dcolor="#8e0000"
+                        style="background-color: #c62828;"></span>
+                    <span class="color-swatch" data-color="#2196f3" data-dcolor="#1565c0"
+                        style="background-color: #2196f3;"></span>
+                    <span class="color-swatch" data-color="#607d8b" data-dcolor="#37474f"
+                        style="background-color: #607d8b;"></span>
+                    <span class="color-swatch" data-color="#00695c" data-dcolor="#263238"
+                        style="background-color: #00695c;"></span>
+                </div>
+                <div id="darkModeToggle">
+                    <label class="p-3 inline-flex items-center cursor-pointer">
+                        <input type="checkbox" value="" class="sr-only peer">
                         <div
-                            class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden dark:text-gray-300 dark:focus:bg-white/5 dark:focus:text-white">
-                            <div class="color-palette" title="Change Theme Color">
-                                <span class="color-swatch activeicon" data-color="teal" data-dcolor="#004d40"
-                                    style="background-color: teal;"></span>
-                                <span class="color-swatch" data-color="#e57373" data-dcolor="#b71c1c"
-                                    style="background-color: #e57373;"></span>
-                                <span class="color-swatch" data-color="#c62828" data-dcolor="#8e0000"
-                                    style="background-color: #c62828;"></span>
-                                <span class="color-swatch" data-color="#2196f3" data-dcolor="#1565c0"
-                                    style="background-color: #2196f3;"></span>
-                                <span class="color-swatch" data-color="#607d8b" data-dcolor="#37474f"
-                                    style="background-color: #607d8b;"></span>
-                                <span class="color-swatch" data-color="#00695c" data-dcolor="#263238"
-                                    style="background-color: #00695c;"></span>
-                            </div>
-                            <!-- <div class="theme-controls"> -->
-                            <label class="inline-flex items-center cursor-pointer">
-                                <input type="checkbox" value="" class="sr-only peer">
-                                <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 
-                                        peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 
-                                        peer-checked:after:translate-x-full 
-                                        rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] 
-                                        after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border 
-                                        after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 
-                                        dark:peer-checked:bg-blue-600"></div>
-
-                                <span class="ms-3 toggle-btn" id="darkModeToggle">Dark
-                                    Mode</span>
-                            </label>
-
-                            <!-- </div> -->
-                            <!-- <button id="darkModeToggle">
-                                    <i class="fas fa-moon moon-icon"></i> Dark Mode
-                                </button> -->
-                            <!-- <button id="layout-toggle" title="Toggle Layout">📐</button> -->
+                            class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600">
                         </div>
+                        <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Dark Mode</span>
+                    </label>
+                </div>
+            </div>
 
-                    </div>
-
-                    <!-- <a href="#"
-                            class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden dark:text-gray-300 dark:focus:bg-white/5 dark:focus:text-white">Support</a>
-                        <a href="#"
-                            class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden dark:text-gray-300 dark:focus:bg-white/5 dark:focus:text-white">License</a>
-                        <form action="#" method="POST">
-                            <button type="submit"
-                                class="block w-full px-4 py-2 text-left text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden dark:text-gray-300 dark:focus:bg-white/5 dark:focus:text-white">Sign
-                                out</button>
-                        </form> -->
-                </el-menu>
-            </el-dropdown>
         </div>
 
 
@@ -524,6 +497,7 @@
         </div>
 
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
     <script src="./assets/scripts/script.js"></script>
 </body>
 

@@ -56,26 +56,39 @@ Array.from(navbar[0].children).forEach((item) => {
     });
 });
 
-const darkModeBtn = document.getElementById('darkModeToggle');
+const darkModeBtn = document.querySelector('#darkModeToggle input[type="checkbox"]');
 // const icons = darkModeBtn.querySelector("i");
 // console.log(icons);
 
-darkModeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-    if (document.body.classList.contains("dark-mode")) {
-        // icons.classList.remove("fa-moon");
-        // icons.classList.add("fa-sun");
+darkModeBtn.addEventListener('change', (e) => {
+    if (e.target.checked) {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
         document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
         document.documentElement.style.setProperty('--active-bg-color', localStorage.getItem("themeDColor"));
-        // console.log(localStorage.getItem("themeDColor"));
+        darkModeBtn.checked = true;
     } else {
-        // icons.classList.remove("fa-sun");
-        // icons.classList.add("fa-moon");
+        document.body.classList.remove('dark-mode');
         document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
         document.documentElement.style.setProperty('--theme-d-color', localStorage.getItem("themeDColor"));
         document.documentElement.style.setProperty('--active-bg-color', "white");
+        darkModeBtn.checked = false;
     }
+    // document.body.classList.toggle('dark-mode');
+    // localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    // if (document.body.classList.contains("dark-mode")) {
+    //     // icons.classList.remove("fa-moon");
+    //     // icons.classList.add("fa-sun");
+    //     document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
+    //     document.documentElement.style.setProperty('--active-bg-color', localStorage.getItem("themeDColor"));
+    //     // console.log(localStorage.getItem("themeDColor"));
+    // } else {
+    //     // icons.classList.remove("fa-sun");
+    //     // icons.classList.add("fa-moon");
+    //     document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
+    //     document.documentElement.style.setProperty('--theme-d-color', localStorage.getItem("themeDColor"));
+    //     document.documentElement.style.setProperty('--active-bg-color', "white");
+    // }
 });
 
 // Apply on page load
@@ -83,6 +96,7 @@ if (localStorage.getItem('darkMode') === 'true') {
     document.body.classList.add('dark-mode');
     document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
     document.documentElement.style.setProperty('--active-bg-color', localStorage.getItem("themeDColor"));
+    darkModeBtn.checked = true;
 }
 
 const swatches = document.querySelectorAll(".color-swatch");
