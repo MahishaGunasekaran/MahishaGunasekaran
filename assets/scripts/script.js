@@ -66,12 +66,16 @@ darkModeBtn.addEventListener('change', (e) => {
         localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
         document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
         document.documentElement.style.setProperty('--active-bg-color', localStorage.getItem("themeDColor"));
+        document.documentElement.style.setProperty('--dropdown-color', 'white');
+        document.documentElement.style.setProperty('--theme-color-border', 'black');
         darkModeBtn.checked = true;
     } else {
         document.body.classList.remove('dark-mode');
         document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
         document.documentElement.style.setProperty('--theme-d-color', localStorage.getItem("themeDColor"));
         document.documentElement.style.setProperty('--active-bg-color', "white");
+        document.documentElement.style.setProperty('--dropdown-color', localStorage.getItem("dropdownColor"));
+        document.documentElement.style.setProperty('--theme-color-border', 'white');
         darkModeBtn.checked = false;
     }
     // document.body.classList.toggle('dark-mode');
@@ -96,6 +100,7 @@ if (localStorage.getItem('darkMode') === 'true') {
     document.body.classList.add('dark-mode');
     document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
     document.documentElement.style.setProperty('--active-bg-color', localStorage.getItem("themeDColor"));
+    // document.documentElement.style.setProperty('--dropdown-color', localStorage.getItem("dropdownColor"));
     darkModeBtn.checked = true;
 }
 
@@ -108,10 +113,15 @@ swatches.forEach(swatch => {
 
         const color = swatch.dataset.color;
         const dcolor = swatch.dataset.dcolor;
+        const dropdownColor = swatch.dataset.dropdowncolor;
+        // console.log(swatch);
+        // console.log(dropdownColor);
         document.documentElement.style.setProperty('--theme-color', color);
         document.documentElement.style.setProperty('--theme-d-color', dcolor);
+        document.documentElement.style.setProperty('--dropdown-color', dropdownColor);
         localStorage.setItem("themeColor", color);
         localStorage.setItem("themeDColor", dcolor);
+        localStorage.setItem("dropdownColor", dropdownColor);
         if (document.body.classList.contains("dark-mode")) {
             document.documentElement.style.setProperty('--theme-color', color);
             document.documentElement.style.setProperty('--active-bg-color', dcolor);
