@@ -8,7 +8,6 @@ const observer = new IntersectionObserver((entries) => {
         const id = entry.target.getAttribute("id");
 
         if (entry.isIntersecting) {
-            console.log(id);
             // Animate on scroll for elements that have this class
             if (entry.target.classList.contains('animate-on-scroll')) {
                 entry.target.classList.add("visible");
@@ -71,6 +70,7 @@ darkModeBtn.addEventListener('change', (e) => {
         darkModeBtn.checked = true;
     } else {
         document.body.classList.remove('dark-mode');
+        localStorage.setItem("darkMode", false);
         document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
         document.documentElement.style.setProperty('--theme-d-color', localStorage.getItem("themeDColor"));
         document.documentElement.style.setProperty('--active-bg-color', "white");
@@ -100,8 +100,15 @@ if (localStorage.getItem('darkMode') === 'true') {
     document.body.classList.add('dark-mode');
     document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
     document.documentElement.style.setProperty('--active-bg-color', localStorage.getItem("themeDColor"));
-    // document.documentElement.style.setProperty('--dropdown-color', localStorage.getItem("dropdownColor"));
+    document.documentElement.style.setProperty('--dropdown-color', "white");
     darkModeBtn.checked = true;
+} else {
+    document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
+    document.documentElement.style.setProperty('--theme-d-color', localStorage.getItem("themeDColor"));
+    document.documentElement.style.setProperty('--dropdown-color', localStorage.getItem("dropdownColor"));
+    const colorIconId = localStorage.getItem("iconId");
+    const iconElement = document.getElementById(colorIconId);
+    console.log(iconElement);
 }
 
 const swatches = document.querySelectorAll(".color-swatch");
@@ -122,9 +129,12 @@ swatches.forEach(swatch => {
         localStorage.setItem("themeColor", color);
         localStorage.setItem("themeDColor", dcolor);
         localStorage.setItem("dropdownColor", dropdownColor);
+        localStorage.setItem("iconId", color);
+        // swatch.setAttribute("id", color);
         if (document.body.classList.contains("dark-mode")) {
             document.documentElement.style.setProperty('--theme-color', color);
             document.documentElement.style.setProperty('--active-bg-color', dcolor);
+            document.documentElement.style.setProperty('--dropdown-color', "white");
             // console.log(localStorage.getItem("themeDColor"));
         }
     })
@@ -137,3 +147,11 @@ hamburger.addEventListener("click", () => {
     profileCard.classList.toggle("show");
 });
 
+window.addEventListener("DOMContentLoaded", () => {
+    const colorIconId = localStorage.getItem("iconId");
+    console.log(colorIconId);
+    const iconElement = document.getElementById(colorIconId);
+    console.log(iconElement);
+    iconElement.classList.add("activeicon");
+    console.log("Helloooo");
+});
