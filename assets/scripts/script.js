@@ -152,6 +152,13 @@ window.addEventListener("DOMContentLoaded", () => {
     console.log(colorIconId);
     const iconElement = document.getElementById(colorIconId);
     console.log(iconElement);
-    iconElement.classList.add("activeicon");
+    swatches.forEach(swatch => {
+        swatch.classList.remove("activeicon");
+    });
+    if (iconElement) {
+        iconElement.classList.add("activeicon");
+    } else {
+        document.getElementById("teal").classList.add("activeicon");
+    }
     console.log("Helloooo");
 });
