@@ -284,7 +284,10 @@ body {
 .settings-icon {
     padding-top: 30px;
     text-align: center;
+}
 
+.tabs a:hover {
+    transform: translateY(5px);
 }
 
 .description {
@@ -298,6 +301,8 @@ body {
     height: 100%;
     overflow: visible;
     overflow-y: scroll;
+    /* flex-wrap: wrap; */
+    /* text-wrap: wrap; */
 }
 
 #profile-image {
@@ -335,6 +340,7 @@ a:visited {
 .tabs {
     display: flex;
     flex-direction: column;
+    transition: transform 0.2s ease;
 }
 
 .about,
@@ -621,10 +627,13 @@ a:visited {
 
 #dropdown {
     background-color: var(--dropdown-color);
-    max-height: 0;
+    max-height: 0px;
+    max-width: 300px;
     display: none;
+    padding: 10px;
+    margin-top: 20px;
     /* overflow: hidden; */
-    /* transition: max-height 0.3s ease-in-out; */
+    /* transition: opacity 0.8s ease-out, transform 0.8s ease-out; */
     /* z-index: 9999;
     position: absolute; */
 }
@@ -739,6 +748,18 @@ a:visited {
     }
 } */
 
+@media (max-width: 1275px) {
+    .content {
+        margin-left: 32%;
+        width: 68%;
+        /* background-color: red; */
+        height: 100%;
+        overflow: visible;
+        overflow-y: scroll;
+        text-overflow: auto;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         display: flex;
@@ -760,7 +781,7 @@ a:visited {
     }
 
     .content {
-        /* margin-left: 30%; */
+        margin-left: 0%;
         width: 100%;
         /* background-color: red; */
         height: 100%;

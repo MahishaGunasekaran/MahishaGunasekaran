@@ -145,6 +145,14 @@ const profileCard = document.querySelector(".profile-card");
 
 hamburger.addEventListener("click", () => {
     profileCard.classList.toggle("show");
+    console.log(profileCard.classList);
+    if (profileCard.classList.contains("show")) {
+        console.log("inside if loop");
+        hamburger.style.setProperty("color", "white");
+    } else {
+        console.log("inside if loop");
+        hamburger.style.setProperty("color", localStorage.getItem("themeColor"));
+    }
 });
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -204,3 +212,7 @@ btn.addEventListener("click", () => {
     }
 });
 
+// console.log(document.getElementsByClassName("profile-card")[0].classList);
+// if (document.getElementsByClassName("profile-card")[0].classList.contains("show")) {
+//     document.getElementsByClassName("hamburger").style.color("white");
+// }
