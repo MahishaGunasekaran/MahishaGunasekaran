@@ -275,7 +275,7 @@ body {
 .name,
 .avatar,
 .description,
-/* .about-header, */
+.about-header,
 .skills-header,
 .projects-header,
 .education-header,
@@ -621,6 +621,10 @@ a:visited {
 
 #dropdown {
     background-color: var(--dropdown-color);
+    max-height: 0;
+    display: none;
+    /* overflow: hidden; */
+    /* transition: max-height 0.3s ease-in-out; */
     /* z-index: 9999;
     position: absolute; */
 }

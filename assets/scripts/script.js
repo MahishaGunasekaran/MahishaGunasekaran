@@ -171,20 +171,36 @@ window.addEventListener("DOMContentLoaded", () => {
 
 // // Update the Popper instance to reflect changes
 // popperInstance.update();
-const dropdown = document.getElementById('dropdown');
-document.body.appendChild(dropdown);
+// const dropdown = document.getElementById('dropdown');
+// document.body.appendChild(dropdown);
+
+// const btn = document.getElementById("dropdownDefaultButton");
+// // const placement = btn.dataset.dropdown - placement;
+// // helper: set placement explicitly
+// function setDropdownPlacement() {
+// if (window.innerWidth < 1215) {  // breakpoint: adjust as needed
+//     btn.setAttribute("data-dropdown-placement", "right");
+// } else {
+//     btn.setAttribute("data-dropdown-placement", "bottom");
+// }
+// }
+
+// // run on load + resize
+// setDropdownPlacement();
+// window.addEventListener("resize", setDropdownPlacement);
 
 const btn = document.getElementById("dropdownDefaultButton");
-// const placement = btn.dataset.dropdown - placement;
-// helper: set placement explicitly
-function setDropdownPlacement() {
-if (window.innerWidth < 1215) {  // breakpoint: adjust as needed
-    btn.setAttribute("data-dropdown-placement", "right");
-} else {
-    btn.setAttribute("data-dropdown-placement", "bottom");
-}
-}
+// const dropdown = document.getElementById("dropdown");
 
-// run on load + resize
-setDropdownPlacement();
-window.addEventListener("resize", setDropdownPlacement);
+btn.addEventListener("click", () => {
+    console.log(dropdown.style.maxHeight);
+    console.log(dropdown.scrollHeight);
+    if (dropdown.style.maxHeight != "0px") {
+        dropdown.style.maxHeight = "0px"; // collapse
+        document.getElementById("dropdown").style.display = "none"
+    } else {
+        dropdown.style.maxHeight = 509 + "px"; // expand to full content
+        document.getElementById("dropdown").style.display = "block"
+    }
+});
+
