@@ -102,7 +102,7 @@
             <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> -->
 
 
-            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
+            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" data-dropdown-placement="bottom"
                 class="text-center inline-flex items-center settings-icon" type="button"><span><i
                         class="fas fa-cog"></i> &nbsp; Change Theme</span><svg class="w-2.5 h-2.5 ms-3"
                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -111,7 +111,7 @@
                 </svg>
             </button>
             <!-- Dropdown menu -->
-            <div id="dropdown" class="p-3 z-10 hidden rounded-lg shadow-sm w-55 dark:bg-gray-700">
+            <div id="dropdown" class="p-3 hidden rounded-lg shadow-sm w-75 h-45 dark:bg-gray-700">
                 <div class="color-palette" title="Change Theme Color">
                     <span class="color-swatch activeicon" data-color="teal" data-dcolor="#004d40"
                         data-dropdownColor="#20B2AA" style="background-color: teal;" id="teal"></span>
@@ -130,6 +130,7 @@
                     <span class="color-swatch" data-color="#8e24aa" data-dcolor="#8e24aa" data-dropdownColor="#ba68c8"
                         style="background-color: #8e24aa;" id="#8e24aa"></span>
                 </div>
+                <!-- <br> -->
                 <div id="darkModeToggle">
                     <label class="p-3 inline-flex items-center cursor-pointer">
                         <input type="checkbox" value="" class="sr-only peer">
@@ -507,6 +508,8 @@
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
     <script src="./assets/scripts/script.js"></script>
 </body>
 

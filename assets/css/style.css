@@ -21,8 +21,8 @@ body.dark-mode {
     /* soft light teal for headings */
     --shadow-dark: rgba(0, 0, 0, 0.5);
     --dark-bg: black;
-     --ring-color: var(--theme-color);
-     --theme-color-border: black;
+    --ring-color: var(--theme-color);
+    --theme-color-border: black;
 }
 
 body.dark-mode .profile-card {
@@ -296,6 +296,7 @@ body {
     width: 70%;
     /* background-color: red; */
     height: 100%;
+    overflow: visible;
     overflow-y: scroll;
 }
 
@@ -620,6 +621,8 @@ a:visited {
 
 #dropdown {
     background-color: var(--dropdown-color);
+    /* z-index: 9999;
+    position: absolute; */
 }
 
 .animate-on-scroll {
@@ -724,7 +727,13 @@ a:visited {
     align-items: center;
 }
 
-
+/* @media (max-width: 1260px) {
+    #dropdown {
+       top: 0 !important;      
+    left: 100% !important;    
+    right: auto !important;
+    }
+} */
 
 @media (max-width: 768px) {
     .container {

@@ -162,3 +162,29 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     console.log("Helloooo");
 });
+
+// const button = document.querySelector('#dropdownDefaultButton');
+// const menu = document.querySelector('#dropdown');
+// popperInstance.setOptions({
+//   placement: 'top', // New placement
+// });
+
+// // Update the Popper instance to reflect changes
+// popperInstance.update();
+const dropdown = document.getElementById('dropdown');
+document.body.appendChild(dropdown);
+
+const btn = document.getElementById("dropdownDefaultButton");
+// const placement = btn.dataset.dropdown - placement;
+// helper: set placement explicitly
+function setDropdownPlacement() {
+if (window.innerWidth < 1215) {  // breakpoint: adjust as needed
+    btn.setAttribute("data-dropdown-placement", "right");
+} else {
+    btn.setAttribute("data-dropdown-placement", "bottom");
+}
+}
+
+// run on load + resize
+setDropdownPlacement();
+window.addEventListener("resize", setDropdownPlacement);
