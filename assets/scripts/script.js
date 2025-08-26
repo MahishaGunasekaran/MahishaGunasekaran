@@ -227,6 +227,7 @@ function rotateColors() {
     swatches.forEach(swatch => {
         swatch.classList.remove("activeicon");
     });
+    swatches[randomIndex].classList.add("activeicon");
     // console.log(colorsList);
     // console.log(randomIndex);
     document.documentElement.style.setProperty('--theme-color', colorsList[randomIndex]);
