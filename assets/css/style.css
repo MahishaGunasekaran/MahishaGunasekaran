@@ -319,6 +319,47 @@ body {
     padding: 10px;
 }
 
+.color-info {
+    padding-top: 20px;
+    background: #ffeb3b;
+    color: #000;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-block;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0.6;
+    }
+}
+
+/* .tooltip {
+  position: absolute;
+  top: -30px;
+  right: 0;
+  background: #222;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0.6; }
+} */
+
+
+
+
 #dropdownDefaultButton:hover {
     transform: translateY(5px);
 }

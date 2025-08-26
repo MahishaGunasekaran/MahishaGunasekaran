@@ -95,25 +95,15 @@ darkModeBtn.addEventListener('change', (e) => {
     // }
 });
 
-// Apply on page load
-if (localStorage.getItem('darkMode') === 'true') {
-    document.body.classList.add('dark-mode');
-    document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
-    document.documentElement.style.setProperty('--active-bg-color', localStorage.getItem("themeDColor"));
-    document.documentElement.style.setProperty('--dropdown-color', "white");
-    darkModeBtn.checked = true;
-} else {
-    document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
-    document.documentElement.style.setProperty('--theme-d-color', localStorage.getItem("themeDColor"));
-    document.documentElement.style.setProperty('--dropdown-color', localStorage.getItem("dropdownColor"));
-    const colorIconId = localStorage.getItem("iconId");
-    const iconElement = document.getElementById(colorIconId);
-    console.log(iconElement);
-}
+
 
 const swatches = document.querySelectorAll(".color-swatch");
+const colorsList = [];
+const dColorsList = [];
+const dropdownColorsList = [];
 
 swatches.forEach(swatch => {
+
     swatch.addEventListener("click", () => {
         swatches.forEach(s => s.classList.remove("activeicon"));
         swatch.classList.add("activeicon");
@@ -121,6 +111,7 @@ swatches.forEach(swatch => {
         const color = swatch.dataset.color;
         const dcolor = swatch.dataset.dcolor;
         const dropdownColor = swatch.dataset.dropdowncolor;
+
         // console.log(swatch);
         // console.log(dropdownColor);
         document.documentElement.style.setProperty('--theme-color', color);
@@ -174,6 +165,13 @@ window.addEventListener("DOMContentLoaded", () => {
     console.log(iconElement);
     swatches.forEach(swatch => {
         swatch.classList.remove("activeicon");
+        const color = swatch.dataset.color;
+        const dcolor = swatch.dataset.dcolor;
+        const dropdownColor = swatch.dataset.dropdowncolor;
+
+        colorsList.push(color);
+        dColorsList.push(dcolor);
+        dropdownColorsList.push(dropdownColor);
     });
     if (iconElement) {
         iconElement.classList.add("activeicon");
@@ -224,7 +222,32 @@ btn.addEventListener("click", () => {
     }
 });
 
+function rotateColors() {
+    var randomIndex = Math.floor(Math.random() * colorsList.length);
+    swatches.forEach(swatch => {
+        swatch.classList.remove("activeicon");
+    });
+    // console.log(colorsList);
+    // console.log(randomIndex);
+    document.documentElement.style.setProperty('--theme-color', colorsList[randomIndex]);
+    document.documentElement.style.setProperty('--theme-d-color', dColorsList[randomIndex]);
+    document.documentElement.style.setProperty('--dropdown-color', dropdownColorsList[randomIndex]);
+    localStorage.setItem("themeColor", colorsList[randomIndex]);
+    localStorage.setItem("themeDColor", dColorsList[randomIndex]);
+    localStorage.setItem("dropdownColor", dropdownColorsList[randomIndex]);
+    localStorage.setItem("iconId", colorsList[randomIndex]);
+    // swatch.setAttribute("id", color);
+    if (document.body.classList.contains("dark-mode")) {
+        document.documentElement.style.setProperty('--theme-color', colorsList[randomIndex]);
+        document.documentElement.style.setProperty('--active-bg-color', dColorsList[randomIndex]);
+        document.documentElement.style.setProperty('--dropdown-color', "white");
+        // console.log(localStorage.getItem("themeDColor"));
+    }
+}
+
 // console.log(document.getElementsByClassName("profile-card")[0].classList);
 // if (document.getElementsByClassName("profile-card")[0].classList.contains("show")) {
 //     document.getElementsByClassName("hamburger").style.color("white");
 // }
+// rotateColors();
+setInterval(rotateColors, 3000);
