@@ -9,6 +9,10 @@
     --theme-color-border: white;
 }
 
+html {
+    font-size: 100%;
+}
+
 body.dark-mode {
     --white: #e0e0e0;
     /* light gray text instead of pure white */
@@ -189,6 +193,7 @@ body {
     display: flex;
     margin: 0;
     padding: 0;
+    width: 100%;
     height: 100%;
     scroll-behavior: smooth;
     /* overflow: hidden; */
@@ -205,6 +210,9 @@ body {
 .container {
     display: flex;
     min-height: 100vh;
+    width: 100%;
+    max-width: none; 
+    /* box-sizing: border-box; */
 }
 
 .name-title,
@@ -219,20 +227,23 @@ body {
 }
 
 .name-title {
-    font-size: 70px;
+    /* font-size: 70px; */
+    font-size: clamp(2rem, 5vw, 4rem);
     border-left: solid 5px var(--theme-color);
     padding-left: 15px;
 }
 
 .job-title {
     font-weight: 500;
-    font-size: xx-large;
+    /* font-size: xx-large; */
+    font-size: clamp(1.25rem, 3vw, 2rem);
     padding-top: 10px;
 }
 
 .skills-title {
     font-weight: 900;
-    font-size: xx-large;
+    /* font-size: xx-large; */
+    font-size: clamp(1.25rem, 3vw, 2rem);
     border-left: solid 5px var(--theme-color);
     padding-left: 15px;
     color: var(--theme-color);
@@ -240,14 +251,18 @@ body {
 
 .pitch {
     font-weight: 300;
-    font-size: medium;
+    /* font-size: medium; */
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    line-height: 1.6;
+    word-wrap: break-word;
     padding-top: 20px;
 }
 
 .profile-card {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    flex: 0 0 30%;
+    max-width: 30%;
     height: 100vh;
     background-color: var(--theme-color);
     font-family: "Manrope", sans-serif;
@@ -269,7 +284,8 @@ body {
 }
 
 .name {
-    font-size: xx-large;
+    /* font-size: xx-large; */
+    font-size: clamp(1.25rem, 3vw, 2rem);
 }
 
 .name,
@@ -295,12 +311,19 @@ body {
 }
 
 .content {
-    margin-left: 30%;
+    flex: 1;
+    min-width: 0;
+    /* prevents overflow */
+    padding: 20px;
     width: 70%;
+    /* margin-left: 30%;
+    width: 70%; */
     /* background-color: red; */
-    height: 100%;
+    /* height: 100%; */
     overflow: visible;
     overflow-y: scroll;
+    height: 100vh;
+    margin-left: 30%;
     /* flex-wrap: wrap; */
     /* text-wrap: wrap; */
 }
@@ -748,49 +771,97 @@ a:visited {
     }
 } */
 
-@media (max-width: 1275px) {
-    .content {
-        margin-left: 32%;
-        width: 68%;
-        /* background-color: red; */
-        height: 100%;
-        overflow: visible;
-        overflow-y: scroll;
-        text-overflow: auto;
-    }
-}
-
-@media (max-width: 768px) {
+@media (min-width: 1280px) {
     .container {
         display: flex;
-        flex-direction: column;
+        width: 100%;
+        min-height: 100vh;
+        max-width: none; 
     }
 
     .profile-card {
-        /* width: 100%; */
-        /* height: 100%; */
+        flex: 0 0 40%;
+        /* fixed 30% width */
+        max-width: 40%;
+        height: 100vh;
+    }
+
+    .content {
+        /* display: flex;
+        flex-direction: column; */
+        /* align-items: center; */
+        /* justify-content: center; */
+        margin-left: 40%;
+        /* push to the right of sidebar */
+        width: 60%;
+        min-width: 0;
+        /* fix flexbox overflow */
+        height: 100vh;
+        overflow-y: auto;
+    }
+}
+
+/* ====== MEDIUM SCREENS (768px – 1279px) ====== */
+@media (max-width: 1279px) and (min-width: 768px) {
+
+    .container {
+        display: flex;
+        width: 100%;
+        min-height: 100vh;
+        max-width: none; 
+    }
+
+    .profile-card {
+        flex: 0 0 30%;
+        /* fixed 30% width */
+        max-width: 30%;
+        height: 100vh;
+    }
+
+    .content {
+        margin-left: 40%;
+        /* push to the right of sidebar */
+        width: 60%;
+        min-width: 0;
+        /* fix flexbox overflow */
+        height: 100vh;
+        overflow-y: auto;
+    }
+}
+
+/* ====== SMALL SCREENS (<768px) ====== */
+@media (max-width: 767px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-height: 100vh;
+        max-width: none; 
+    }
+
+    .profile-card {
         display: none;
+        /* hidden by default */
         position: absolute;
         top: 0;
         left: 0;
-        /* height: 100vh; */
-        /* width: 220px; */
+        width: 420px;
+        height: 100vh;
         z-index: 1000;
         padding: 1rem;
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     }
 
-    .content {
-        margin-left: 0%;
-        width: 100%;
-        /* background-color: red; */
-        height: 100%;
-        overflow-y: scroll;
-        margin-left: 0%;
-    }
-
     .profile-card.show {
         display: block;
+        /* shown when hamburger is clicked */
+    }
+
+    .content {
+        flex: 1;
+        margin-left: 0%;
+        width: 100%;
+        padding: 15px;
     }
 
     .hamburger {
@@ -809,7 +880,8 @@ a:visited {
     }
 }
 
-@media (min-width: 769px) {
+/* Hide hamburger on larger screens */
+@media (min-width: 768px) {
     .hamburger {
         display: none;
     }
