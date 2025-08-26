@@ -106,6 +106,10 @@ body.dark-mode .skill-name {
     font-style: normal;
 }
 
+body.dark-mode .project-links a:hover {
+    color: var(--white);
+}
+
 .dark-toggle {
     /* position: fixed; */
     /* bottom: 20px; */
@@ -199,14 +203,6 @@ body {
     /* overflow: hidden; */
 }
 
-.tabs>.active span {
-    background-color: var(--active-bg-color);
-    color: var(--active-text-color);
-    font-weight: bold;
-    border-radius: 6px;
-    padding: 10px;
-}
-
 .container {
     display: flex;
     min-height: 100vh;
@@ -246,7 +242,7 @@ body {
     font-size: clamp(1.25rem, 3vw, 2rem);
     border-left: solid 5px var(--theme-color);
     padding-left: 15px;
-    color: var(--theme-color);
+    color: var(--theme-d-color);
 }
 
 .pitch {
@@ -301,9 +297,29 @@ body {
 .settings-icon {
     padding-top: 30px;
     text-align: center;
+    /* box-shadow: 0 2px 10px var(--shadow-dark); */
 }
 
+.tabs a {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+}
+
+
 .tabs a:hover {
+    transform: translateY(5px);
+}
+
+.tabs>.active span {
+    background-color: var(--active-bg-color);
+    color: var(--active-text-color);
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+#dropdownDefaultButton:hover {
     transform: translateY(5px);
 }
 
@@ -361,10 +377,8 @@ a:visited {
     text-decoration: none;
 }
 
-.tabs {
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s ease;
+#dropdownDefaultButton {
+    transition: all 0.3s ease;
 }
 
 .about,
@@ -552,10 +566,13 @@ a:visited {
     color: var(--theme-color);
     font-size: 18px;
     text-decoration: none;
+    transition: transform 0.2s ease, color 0.2s ease;
 }
+
 
 .project-links a:hover {
     color: #00695c;
+    transform: translateY(5px);
 }
 
 /*  Work Experience */
