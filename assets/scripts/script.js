@@ -149,8 +149,20 @@ hamburger.addEventListener("click", () => {
     if (profileCard.classList.contains("show")) {
         console.log("inside if loop");
         hamburger.style.setProperty("color", "white");
+        hamburger.style.setProperty("margin-bottom", "10px");
     } else {
         console.log("inside if loop");
+        hamburger.style.setProperty("color", localStorage.getItem("themeColor"));
+    }
+});
+
+document.addEventListener("click", (event) => {
+    if (
+        profileCard.classList.contains("show") &&
+        !profileCard.contains(event.target) &&
+        !hamburger.contains(event.target)
+    ) {
+        profileCard.classList.remove("show");
         hamburger.style.setProperty("color", localStorage.getItem("themeColor"));
     }
 });
