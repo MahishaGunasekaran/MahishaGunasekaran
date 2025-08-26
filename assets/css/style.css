@@ -709,9 +709,9 @@ a:visited {
 
 #dropdown {
     background-color: var(--dropdown-color);
-    max-height: 0px;
+    max-height: none;
     max-width: 300px;
-    display: none;
+    display: block;
     padding: 10px;
     margin-top: 20px;
     /* overflow: hidden; */

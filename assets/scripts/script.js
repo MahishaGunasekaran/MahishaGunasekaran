@@ -208,17 +208,17 @@ window.addEventListener("DOMContentLoaded", () => {
 // window.addEventListener("resize", setDropdownPlacement);
 
 const btn = document.getElementById("dropdownDefaultButton");
-// const dropdown = document.getElementById("dropdown");
+const box = document.getElementById("dropdown");
 
 btn.addEventListener("click", () => {
-    console.log(dropdown.style.maxHeight);
-    console.log(dropdown.scrollHeight);
-    if (dropdown.style.maxHeight != "0px") {
-        dropdown.style.maxHeight = "0px"; // collapse
-        document.getElementById("dropdown").style.display = "none"
+    const currHeight = window.getComputedStyle(box).maxHeight;
+    
+    if (currHeight !== "0px") {
+        box.style.maxHeight = "0px"; // collapse
+        box.style.display = "none";
     } else {
-        dropdown.style.maxHeight = 509 + "px"; // expand to full content
-        document.getElementById("dropdown").style.display = "block"
+        box.style.display = "block";
+        box.style.maxHeight = box.scrollHeight + "px"; // expand dynamically
     }
 });
 
