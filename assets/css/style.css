@@ -321,13 +321,17 @@ body {
 
 .color-info {
     padding-top: 20px;
-    background: #ffeb3b;
-    color: #000;
+    background: var(--theme-color);
+    color: white;
     padding: 4px 8px;
-    border-radius: 12px;
+    border-radius: 6px;
     font-weight: 600;
     font-size: 14px;
     display: inline-block;
+    text-align: center;
+}
+
+.clock-pulse {
     animation: pulse 1s infinite alternate;
 }
 

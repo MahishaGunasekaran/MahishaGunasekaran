@@ -101,6 +101,7 @@ const swatches = document.querySelectorAll(".color-swatch");
 const colorsList = [];
 const dColorsList = [];
 const dropdownColorsList = [];
+let countDown = 5;
 
 swatches.forEach(swatch => {
 
@@ -212,7 +213,7 @@ const box = document.getElementById("dropdown");
 
 btn.addEventListener("click", () => {
     const currHeight = window.getComputedStyle(box).maxHeight;
-    
+
     if (currHeight !== "0px") {
         box.style.maxHeight = "0px"; // collapse
         box.style.display = "none";
@@ -244,6 +245,7 @@ function rotateColors() {
         document.documentElement.style.setProperty('--dropdown-color', "white");
         // console.log(localStorage.getItem("themeDColor"));
     }
+    countDown = 5;
 }
 
 // console.log(document.getElementsByClassName("profile-card")[0].classList);
@@ -251,4 +253,10 @@ function rotateColors() {
 //     document.getElementsByClassName("hamburger").style.color("white");
 // }
 // rotateColors();
-setInterval(rotateColors, 3000);
+setInterval(()=> {
+    countDown--;
+    if(countDown < 0) {
+        rotateColors();
+    }
+    document.getElementById("timer").textContent = countDown < 0 ? 0 : countDown;
+}, 1000)
