@@ -20,7 +20,7 @@ body {
     font-optical-sizing: auto;
     font-weight: 900;
     font-style: normal;
-  }
+}
 
 /* Add media queries */
 
@@ -37,7 +37,7 @@ body {
     font-style: normal;
 }
 
-.top-left{
+.top-left {
     position: absolute;
     top: 8px;
     left: 16px;
@@ -101,3 +101,25 @@ button {
 /* Try taking header out by making a link to new page */
 
 /* Add media queries */
+
+@media (max-width: 850px) {
+    .row {
+        margin-bottom: 2rem;
+        /* extra spacing between rows */
+    }
+
+    .projectheader {
+        font-size: 1.25rem;
+        /* slightly smaller headings */
+    }
+
+    .techskills {
+        font-size: 0.9rem;
+        /* better readability */
+    }
+
+    img {
+        margin-top: 1rem;
+        /* space between text and image when stacked */
+    }
+}
