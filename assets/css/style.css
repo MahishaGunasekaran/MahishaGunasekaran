@@ -90,6 +90,11 @@ body.dark-mode .btn-view-all {
     transition: background-color 0.3s, transform 0.2s;
 }
 
+body.dark-mode #stopColorCycle,
+body.dark-mode #resumeColorCycle {
+    background-color: var(--dark-bg);
+}
+
 body.dark-mode .btn-view-all:hover {
     background-color: var(--theme-color);
     transform: translateY(-2px);
@@ -714,6 +719,11 @@ a:visited {
     color: #444;
     line-height: 1.5;
     margin-top: 10px;
+}
+
+#stopColorCycle,
+#resumeColorCycle {
+    background-color: white;
 }
 
 #dropdown {
