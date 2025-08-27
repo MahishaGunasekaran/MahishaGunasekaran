@@ -266,7 +266,7 @@ function startTimer() {
     }, 1000);
 }
 
-stop.addEventListener("click", () => {
+function stopButtonSimulation() {
     clearInterval(colorChange);
     document.getElementById("stopColorCycle").classList.remove("showBtn");
     document.getElementById("stopColorCycle").classList.add("hideBtn");
@@ -274,16 +274,30 @@ stop.addEventListener("click", () => {
     document.getElementById("resumeColorCycle").classList.add("showBtn");
     document.getElementsByClassName("colorCycleText")[0].textContent = "Color cycle Paused!";
     document.getElementsByClassName("fa-clock")[0].classList.remove("clock-pulse");
-});
+    localStorage.setItem("colorChange", "pause");
+}
 
-play.addEventListener("click", () => {
+function playButtonSimulation() {
     document.getElementById("stopColorCycle").classList.add("showBtn");
     document.getElementById("stopColorCycle").classList.remove("hideBtn");
     document.getElementById("resumeColorCycle").classList.add("hideBtn");
     document.getElementById("resumeColorCycle").classList.remove("showBtn");
     document.getElementsByClassName("colorCycleText")[0].textContent = "Fresh Look in";
     document.getElementsByClassName("fa-clock")[0].classList.add("clock-pulse");
+    localStorage.setItem("colorChange", "resume");
     startTimer();
+}
+
+stop.addEventListener("click", () => {
+    stopButtonSimulation();
+});
+
+play.addEventListener("click", () => {
+    playButtonSimulation();
 })
 
-startTimer();
+if (localStorage.getItem("colorChange") == "resume") {
+    playButtonSimulation();
+} else {
+    stopButtonSimulation();
+}
