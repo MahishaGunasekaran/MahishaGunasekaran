@@ -51,18 +51,13 @@ Array.from(navbar[0].children).forEach((item) => {
             node.classList.remove("active");
         });
         item.classList.add("active");
-        console.log("I am clicked");
+
     });
 });
 
-const darkModeBtn = document.querySelector('#darkModeToggle input[type="checkbox"]');
-// const icons = darkModeBtn.querySelector("i");
-// console.log(icons);
-
-darkModeBtn.addEventListener('change', (e) => {
-    if (e.target.checked) {
+function setDarkMode(truth) {
+    if (truth) {
         document.body.classList.add('dark-mode');
-        localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
         document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
         document.documentElement.style.setProperty('--active-bg-color', localStorage.getItem("themeDColor"));
         document.documentElement.style.setProperty('--dropdown-color', 'white');
@@ -70,7 +65,6 @@ darkModeBtn.addEventListener('change', (e) => {
         darkModeBtn.checked = true;
     } else {
         document.body.classList.remove('dark-mode');
-        localStorage.setItem("darkMode", false);
         document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
         document.documentElement.style.setProperty('--theme-d-color', localStorage.getItem("themeDColor"));
         document.documentElement.style.setProperty('--active-bg-color', "white");
@@ -78,21 +72,32 @@ darkModeBtn.addEventListener('change', (e) => {
         document.documentElement.style.setProperty('--theme-color-border', 'white');
         darkModeBtn.checked = false;
     }
-    // document.body.classList.toggle('dark-mode');
-    // localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-    // if (document.body.classList.contains("dark-mode")) {
-    //     // icons.classList.remove("fa-moon");
-    //     // icons.classList.add("fa-sun");
-    //     document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
-    //     document.documentElement.style.setProperty('--active-bg-color', localStorage.getItem("themeDColor"));
-    //     // console.log(localStorage.getItem("themeDColor"));
-    // } else {
-    //     // icons.classList.remove("fa-sun");
-    //     // icons.classList.add("fa-moon");
-    //     document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
-    //     document.documentElement.style.setProperty('--theme-d-color', localStorage.getItem("themeDColor"));
-    //     document.documentElement.style.setProperty('--active-bg-color', "white");
-    // }
+}
+
+function setColors() {
+    document.documentElement.style.setProperty('--theme-color', localStorage.getItem("themeColor"));
+    document.documentElement.style.setProperty('--theme-d-color', localStorage.getItem("themeDColor"));
+    document.documentElement.style.setProperty('--dropdown-color', localStorage.getItem("dropdownColor"));
+    setDarkMode(localStorage.getItem("darkMode") == "true");
+}
+
+const darkModeBtn = document.querySelector('#darkModeToggle input[type="checkbox"]');
+// const icons = darkModeBtn.querySelector("i");
+
+darkModeBtn.addEventListener('change', (e) => {
+    console.log("Inside dark mode toggle button");
+    if (e.target.checked) {
+        console.log("If llopp");
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        // darkModeBtn.checked = true;
+    } else {
+        console.log("EKse loop");
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem("darkMode", false);
+        // darkModeBtn.checked = false;
+    }
+    setDarkMode(localStorage.getItem("darkMode") == "true");
 });
 
 
@@ -114,8 +119,6 @@ swatches.forEach(swatch => {
         const dcolor = swatch.dataset.dcolor;
         const dropdownColor = swatch.dataset.dropdowncolor;
 
-        // console.log(swatch);
-        // console.log(dropdownColor);
         document.documentElement.style.setProperty('--theme-color', color);
         document.documentElement.style.setProperty('--theme-d-color', dcolor);
         document.documentElement.style.setProperty('--dropdown-color', dropdownColor);
@@ -123,12 +126,10 @@ swatches.forEach(swatch => {
         localStorage.setItem("themeDColor", dcolor);
         localStorage.setItem("dropdownColor", dropdownColor);
         localStorage.setItem("iconId", color);
-        // swatch.setAttribute("id", color);
         if (document.body.classList.contains("dark-mode")) {
             document.documentElement.style.setProperty('--theme-color', color);
             document.documentElement.style.setProperty('--active-bg-color', dcolor);
             document.documentElement.style.setProperty('--dropdown-color', "white");
-            // console.log(localStorage.getItem("themeDColor"));
         }
     })
 })
@@ -138,13 +139,10 @@ const profileCard = document.querySelector(".profile-card");
 
 hamburger.addEventListener("click", () => {
     profileCard.classList.toggle("show");
-    console.log(profileCard.classList);
     if (profileCard.classList.contains("show")) {
-        console.log("inside if loop");
         hamburger.style.setProperty("color", "white");
         hamburger.style.setProperty("margin-bottom", "10px");
     } else {
-        console.log("inside if loop");
         hamburger.style.setProperty("color", localStorage.getItem("themeColor"));
     }
 });
@@ -161,10 +159,9 @@ document.addEventListener("click", (event) => {
 });
 
 window.addEventListener("DOMContentLoaded", () => {
+    console.log("I am called")
     const colorIconId = localStorage.getItem("iconId");
-    console.log(colorIconId);
     const iconElement = document.getElementById(colorIconId);
-    console.log(iconElement);
     swatches.forEach(swatch => {
         swatch.classList.remove("activeicon");
         const color = swatch.dataset.color;
@@ -180,34 +177,9 @@ window.addEventListener("DOMContentLoaded", () => {
     } else {
         document.getElementById("teal").classList.add("activeicon");
     }
-    console.log("Helloooo");
+    setColors();
+    setDarkMode(localStorage.getItem("darkMode") == "true");
 });
-
-// const button = document.querySelector('#dropdownDefaultButton');
-// const menu = document.querySelector('#dropdown');
-// popperInstance.setOptions({
-//   placement: 'top', // New placement
-// });
-
-// // Update the Popper instance to reflect changes
-// popperInstance.update();
-// const dropdown = document.getElementById('dropdown');
-// document.body.appendChild(dropdown);
-
-// const btn = document.getElementById("dropdownDefaultButton");
-// // const placement = btn.dataset.dropdown - placement;
-// // helper: set placement explicitly
-// function setDropdownPlacement() {
-// if (window.innerWidth < 1215) {  // breakpoint: adjust as needed
-//     btn.setAttribute("data-dropdown-placement", "right");
-// } else {
-//     btn.setAttribute("data-dropdown-placement", "bottom");
-// }
-// }
-
-// // run on load + resize
-// setDropdownPlacement();
-// window.addEventListener("resize", setDropdownPlacement);
 
 const btn = document.getElementById("dropdownDefaultButton");
 const box = document.getElementById("dropdown");
@@ -232,8 +204,6 @@ function rotateColors() {
         swatch.classList.remove("activeicon");
     });
     swatches[randomIndex].classList.add("activeicon");
-    // console.log(colorsList);
-    // console.log(randomIndex);
     document.documentElement.style.setProperty('--theme-color', colorsList[randomIndex]);
     document.documentElement.style.setProperty('--theme-d-color', dColorsList[randomIndex]);
     document.documentElement.style.setProperty('--dropdown-color', dropdownColorsList[randomIndex]);
@@ -246,16 +216,10 @@ function rotateColors() {
         document.documentElement.style.setProperty('--theme-color', colorsList[randomIndex]);
         document.documentElement.style.setProperty('--active-bg-color', dColorsList[randomIndex]);
         document.documentElement.style.setProperty('--dropdown-color', "white");
-        // console.log(localStorage.getItem("themeDColor"));
     }
     countDown = 5;
 }
 
-// console.log(document.getElementsByClassName("profile-card")[0].classList);
-// if (document.getElementsByClassName("profile-card")[0].classList.contains("show")) {
-//     document.getElementsByClassName("hamburger").style.color("white");
-// }
-// rotateColors();
 function startTimer() {
     colorChange = setInterval(() => {
         countDown--;
@@ -275,6 +239,9 @@ function stopButtonSimulation() {
     document.getElementsByClassName("colorCycleText")[0].textContent = "Color cycle Paused!";
     document.getElementsByClassName("fa-clock")[0].classList.remove("clock-pulse");
     localStorage.setItem("colorChange", "pause");
+    console.log("Iam acllas")
+    setColors();
+    setDarkMode(localStorage.getItem("darkMode") == "true");
 }
 
 function playButtonSimulation() {
@@ -285,6 +252,9 @@ function playButtonSimulation() {
     document.getElementsByClassName("colorCycleText")[0].textContent = "Fresh Look in";
     document.getElementsByClassName("fa-clock")[0].classList.add("clock-pulse");
     localStorage.setItem("colorChange", "resume");
+    setColors();
+    console.log("Iam acllas")
+    setDarkMode(localStorage.getItem("darkMode") == "true");
     startTimer();
 }
 
