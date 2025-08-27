@@ -296,8 +296,8 @@ play.addEventListener("click", () => {
     playButtonSimulation();
 })
 
-if (localStorage.getItem("colorChange") == "resume") {
-    playButtonSimulation();
-} else {
+if (localStorage.getItem("colorChange") == "pause") {
     stopButtonSimulation();
+} else {
+    playButtonSimulation();
 }
