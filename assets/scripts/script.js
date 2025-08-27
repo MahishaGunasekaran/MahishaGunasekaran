@@ -102,6 +102,7 @@ const colorsList = [];
 const dColorsList = [];
 const dropdownColorsList = [];
 let countDown = 5;
+let colorChange;
 
 swatches.forEach(swatch => {
 
@@ -210,6 +211,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
 const btn = document.getElementById("dropdownDefaultButton");
 const box = document.getElementById("dropdown");
+const stop = document.getElementById("stopColorCycle");
+const play = document.getElementById("resumeColorCycle");
 
 btn.addEventListener("click", () => {
     const currHeight = window.getComputedStyle(box).maxHeight;
@@ -253,10 +256,34 @@ function rotateColors() {
 //     document.getElementsByClassName("hamburger").style.color("white");
 // }
 // rotateColors();
-setInterval(()=> {
-    countDown--;
-    if(countDown < 0) {
-        rotateColors();
-    }
-    document.getElementById("timer").textContent = countDown < 0 ? 0 : countDown;
-}, 1000)
+function startTimer() {
+    colorChange = setInterval(() => {
+        countDown--;
+        if (countDown < 0) {
+            rotateColors();
+        }
+        document.getElementById("timer").textContent = countDown < 0 ? 0 : countDown;
+    }, 1000);
+}
+
+stop.addEventListener("click", () => {
+    clearInterval(colorChange);
+    document.getElementById("stopColorCycle").classList.remove("showBtn");
+    document.getElementById("stopColorCycle").classList.add("hideBtn");
+    document.getElementById("resumeColorCycle").classList.remove("hideBtn");
+    document.getElementById("resumeColorCycle").classList.add("showBtn");
+    document.getElementsByClassName("colorCycleText")[0].textContent = "Color cycle Paused!";
+    document.getElementsByClassName("fa-clock")[0].classList.remove("clock-pulse");
+});
+
+play.addEventListener("click", () => {
+    document.getElementById("stopColorCycle").classList.add("showBtn");
+    document.getElementById("stopColorCycle").classList.remove("hideBtn");
+    document.getElementById("resumeColorCycle").classList.add("hideBtn");
+    document.getElementById("resumeColorCycle").classList.remove("showBtn");
+    document.getElementsByClassName("colorCycleText")[0].textContent = "Fresh Look in";
+    document.getElementsByClassName("fa-clock")[0].classList.add("clock-pulse");
+    startTimer();
+})
+
+startTimer();

@@ -114,25 +114,44 @@
                         style="background-color: #48cae4;" id="#48cae4"></span> <!-- Sky blue -->
                 </div>
                 <!-- <br> -->
-                <div id="darkModeToggle" class="mt-3">
-                    <div class="color-info">
-                        <p>Fresh Look in</p><span id="timer"></span> <i class="fas fa-clock clock-pulse"></i>
-                    </div>
-                    <label class="p-3 inline-flex items-center cursor-pointer">
-                        <input type="checkbox" value="" class="sr-only peer">
-                        <div
-                            class="toggleMode relative w-11 h-6 bg-gray-200 peer-focus:outline-none 
-                            peer-focus:ring-4 peer-focus:ring-[var(--ring-color)] dark:peer-focus:ring-[var(--ring-color)] 
-                            rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full 
-                            rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white 
-                            after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white 
-                            after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 
-                            after:transition-all dark:border-gray-600 peer-checked:bg-[var(--ring-color)] dark:peer-checked:bg-[var(--ring-color)]">
+                <div id="darkModeToggle" class="mt-3 space-y-3">
+                    <!-- Color cycle info -->
+                    <div
+                        class="color-info flex items-center justify-between bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-xl shadow-sm">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-clock clock-pulse font-bold text-[var(--dropdown-color)]"></i>
+                            <p class="colorCycleText">Fresh look in</p>
+                            <span id="timer" class="font-bold text-[var(--dropdown-color)]">5</span>
                         </div>
-                        <span class="toggleText ms-3">Dark Mode</span>
+                        <div>
+                            <button id="stopColorCycle" class="ml-3 p-2 rounded-full bg-gray-100 dark:bg-gray-800 shadow-sm 
+           hover:scale-110 hover:shadow-md transition-all duration-300 
+           flex items-center justify-center showBtn" title="Stop color cycle">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
+                                    class="w-5 h-5 text-red-500" id="stopIcon">
+                                    <rect x="6" y="6" width="12" height="12" rx="2" />
+                                </svg>
+                            </button>
+                            <button id="resumeColorCycle" class="ml-3 p-2 rounded-full bg-gray-100 dark:bg-gray-800 shadow-sm 
+           hover:scale-110 hover:shadow-md transition-all duration-300 
+           flex items-center justify-center hideBtn" title="Resume color cycle">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
+                                    class="w-5 h-5 text-green-500" id="playIcon">
+                                    <polygon points="5,3 19,12 5,21" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
 
+                    <!-- Dark mode toggle -->
+                    <label class="p-3 inline-flex items-center cursor-pointer"> <input type="checkbox" value=""
+                            class="sr-only peer">
+                        <div
+                            class="toggleMode relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[var(--ring-color)] dark:peer-focus:ring-[var(--ring-color)] rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[var(--ring-color)] dark:peer-checked:bg-[var(--ring-color)]">
+                        </div> <span class="toggleText ms-3">Dark Mode</span>
                     </label>
                 </div>
+
             </div>
 
             <!-- <div class="tooltip">
