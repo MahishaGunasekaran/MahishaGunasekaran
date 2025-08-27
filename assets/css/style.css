@@ -613,6 +613,18 @@ a:visited {
     font-size: 14px;
     color: #555;
     margin: 5px 0 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    /* ensures badges wrap on smaller screens */
+    gap: 8px;
+    /* space between badges */
+    align-items: center;
+}
+
+
+.tech-badge {
+  height: 28px; /* consistent size for all badges */
+  object-fit: contain;
 }
 
 .project-links a {
