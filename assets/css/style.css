@@ -671,10 +671,11 @@ a:visited {
 
 .company-logo img,
 .univ-logo img {
-    width: 50px;
-    /* adjust as needed */
-    height: 50px;
-    object-fit: cover;
+    max-width: 100%;
+    /* never overflow parent */
+    height: auto;
+    /* keep aspect ratio */
+    object-fit: contain;
     border-radius: 5px;
 }
 
