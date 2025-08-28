@@ -31,3 +31,5 @@
         <a href="https://www.flaticon.com/free-icons/bootstrap" title="bootstrap icons">Bootstrap icons created by Freepik - Flaticon</a>
 
         <a href="https://www.flaticon.com/free-icons/django" title="django icons">Django icons created by Freepik - Flaticon</a>
+
+        ![visitors](https://visitor-badge.laobi.icu/badge?page_id=mahi-mani.mahi-mani.github.io&left_color=gray&right_color=blue)
