@@ -159,7 +159,6 @@ document.addEventListener("click", (event) => {
 });
 
 window.addEventListener("DOMContentLoaded", () => {
-    console.log("I am called")
     const colorIconId = localStorage.getItem("iconId");
     const iconElement = document.getElementById(colorIconId);
     swatches.forEach(swatch => {
@@ -239,7 +238,6 @@ function stopButtonSimulation() {
     document.getElementsByClassName("colorCycleText")[0].textContent = "Color cycle Paused!";
     document.getElementsByClassName("fa-clock")[0].classList.remove("clock-pulse");
     localStorage.setItem("colorChange", "pause");
-    console.log("Iam acllas")
     setColors();
     setDarkMode(localStorage.getItem("darkMode") == "true");
 }

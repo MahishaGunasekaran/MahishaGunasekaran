@@ -610,21 +610,22 @@ a:visited {
 }
 
 .project-tech {
-    font-size: 14px;
-    color: #555;
+    font-size: 0.7rem;
+    /* color: #555; */
     margin: 5px 0 10px 0;
     display: flex;
     flex-wrap: wrap;
     /* ensures badges wrap on smaller screens */
-    gap: 8px;
+    gap: 10px;
     /* space between badges */
     align-items: center;
 }
 
 
 .tech-badge {
-  height: 28px; /* consistent size for all badges */
-  object-fit: contain;
+    height: 28px;
+    /* consistent size for all badges */
+    object-fit: contain;
 }
 
 .project-links a {
@@ -704,6 +705,16 @@ a:visited {
 
 .exp-left {
     flex: 1;
+}
+
+.exp-tech {
+    display: flex;
+    /* keeps them in a row */
+    flex-wrap: wrap;
+    /* allows wrapping on small screens */
+    gap: 10px;
+    /* spacing between badges */
+    margin-top: 10px;
 }
 
 .job-title {
