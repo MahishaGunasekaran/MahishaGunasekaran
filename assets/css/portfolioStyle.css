@@ -96,6 +96,10 @@ button {
     display: none;
 }
 
+.project-links {
+    margin-top: 30px;
+}
+
 /* Add shadows */
 
 /* Try taking header out by making a link to new page */
